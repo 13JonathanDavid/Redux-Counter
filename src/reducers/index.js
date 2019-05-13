@@ -12,10 +12,16 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
-    // Fill in the body of this case
+    console.log(action.payload);
+		state = {count: state.count+action.payload.options.value};
+		
+		break;
     case DECREMENT:
-    // Fill in the body of this case
+      state = {count: (state.count > action.payload.options.value) ? state.count - action.payload.options.value : 0};
+			break;
     default:
-      return state;
-  }
+      break; //Not needed but considered good practice
+    }
+  return state;
+
 };
