@@ -9,10 +9,31 @@ export const DECREMENT = 'DECREMENT';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
-export const increment = () => {
-  // Fill in this function
-};
-
-export const decrement = () => {
-  // Fill in this function
-};
+export const increment = (options ={}) => {
+  if(isFinite(options)){
+    options = { value:options };
+  } else if (options.value == null || options.value == undefined){
+    options.value = 1;
+  }
+  return {
+    type:INCREMENT, 
+    payload:
+    {
+      options: options
+    }
+  };
+}
+export const decrement = (options ={}) => {
+  if(isFinite(options)){
+    options = { value:options };
+  } else if (options.value == null || options.value == undefined){
+    options.value = 1;
+  }
+  return {
+    type:DECREMENT, 
+    payload:
+    {
+      options: options
+    }
+  };
+}
